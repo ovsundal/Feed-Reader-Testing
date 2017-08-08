@@ -44,7 +44,7 @@ $(function() {
         });
 
     });
-
+    //code for this suite inspired from https://discussions.udacity.com/t/menu-visibility-test/187928/5
     describe('The menu', function () {
 
         // Checks that the menu is hidden on page load
@@ -52,7 +52,16 @@ $(function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
-
+        // Checks that menu shows when hamburger icon is clicked and menu is hidden
+        it('should appear when hamburger icon is clicked and menu is hidden', function () {
+            $('.menu-icon-link').click();
+                expect(document.body.className).not.toBe('menu-hidden');
+        });
+        // Checks that menu hides when hamburger icon is clicked and menu is visible
+        it('should disappear when the hamburger icon is clicked when menu is visible', function () {
+            $('.menu-icon-link').click();
+            expect(document.body.className).toBe('menu-hidden');
+        });
     });
 
 
