@@ -6,5 +6,5 @@ This project is part of Udacitys Front-End Web Developer nanodegree program (htt
 
 ## Learning outcomes
 
-*Using Jasmine framework for JavaScript unit testing  
-*Better understanding of asynchronous requests
+* Using Jasmine framework for JavaScript unit testing  
+* Better understanding of asynchronous requests
