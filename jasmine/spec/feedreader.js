@@ -44,7 +44,7 @@ $(function() {
         });
 
     });
-    //code for this suite inspired from https://discussions.udacity.com/t/menu-visibility-test/187928/5
+    //code for this test suite inspired from https://discussions.udacity.com/t/menu-visibility-test/187928/5
     describe('The menu', function () {
 
         // Checks that the menu is hidden on page load
@@ -65,20 +65,28 @@ $(function() {
     });
 
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
-
-    /* TODO: Write a new test suite named "Initial Entries" */
-
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+    describe('Initial Entries', function () {
+        //Checks that there is at least one entry inside the feed container (loaded async)
+
+        //make sure async loadFeed function is done loading
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                done();
+            });
+        });
+
+        it('should have at least one entry', function (done) {
+            expect($('.feed').children().length).toBeGreaterThan(0);
+            done();
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
