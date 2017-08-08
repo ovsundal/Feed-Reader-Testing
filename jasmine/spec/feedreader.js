@@ -29,7 +29,7 @@ $(function() {
         it('each feed has a non-empty url defined', function () {
             allFeeds.forEach(function (item) {
                expect(item.url).toBeDefined();
-               expect(item.url).not.toBe("")
+               expect(item.url).not.toBe("");
             });
         });
 
@@ -39,7 +39,7 @@ $(function() {
         it('each feed has a non-empty name defined', function () {
             allFeeds.forEach(function (item) {
                 expect(item.name).toBeDefined();
-                expect(item.name).not.toBe("")
+                expect(item.name).not.toBe("");
             });
         });
 
