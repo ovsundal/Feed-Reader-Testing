@@ -65,6 +65,7 @@ function init() {
                   * entryTemplate (created above using Handlebars) and append
                   * the resulting HTML to the list of entries on the page.
                   */
+
                  entries.forEach(function(entry) {
                      container.append(entryTemplate(entry));
                  });

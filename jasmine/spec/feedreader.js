@@ -75,23 +75,47 @@ $(function() {
     describe('Initial Entries', function () {
         //Checks that there is at least one entry inside the feed container (loaded async)
 
-        //make sure async loadFeed function is done loading
+        //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
         beforeEach(function (done) {
             loadFeed(0, function () {
                 done();
             });
         });
 
-        it('should have at least one entry', function (done) {
+        //checks that there is at least one feed entry pulled from each feed site
+        it('container should have at least one entry', function (done) {
             expect($('.feed').children().length).toBeGreaterThan(0);
+            console.log($('.feed').children().length);
             done();
         });
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+
+    describe('New Feed Selection', function () {
+
+    //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                done();
+            });
+        });
+
+        //QUESTION FOR REVIEWER: This only checks if posts from the first site is done loading. I want to do a
+        //check for all, but cannot get the forEach code i made up to work. What is wrong in the commented code?
+        //----
+        // beforeEach(function (done) {
+        //     allFeeds.forEach(function(item) {
+        //         loadFeed(item, function () {
+        //             done();
+        //         });
+        //     });
+        // });
+        //----
+
+        it('container newest entry should be different from next entry', function (done) {
+            expect($('.feed').children().first()).not.toEqual(($('.feed').children().first().next()));
+            done();
+        });
+    });
 }());
