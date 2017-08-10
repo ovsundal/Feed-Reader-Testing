@@ -28,8 +28,7 @@ $(function () {
          */
         it('each feed has a non-empty url defined', function () {
             allFeeds.forEach(function (item) {
-                expect(item.url).toBeDefined();
-                expect(item.url).not.toBe("");
+                expect(item.url).toBeTruthy();
             });
         });
 
@@ -38,8 +37,7 @@ $(function () {
          */
         it('each feed has a non-empty name defined', function () {
             allFeeds.forEach(function (item) {
-                expect(item.name).toBeDefined();
-                expect(item.name).not.toBe("");
+                expect(item.name).toBeTruthy();
             });
         });
     });
@@ -89,7 +87,7 @@ $(function () {
 
         //checks that there is at least one entry in feed container
         it('container should have at least one entry', function () {
-            expect($('.feed').children('.entry-link').length).toBeGreaterThan(0);
+            expect(feedContainer.length).toBeGreaterThan(0);
         });
     });
 
