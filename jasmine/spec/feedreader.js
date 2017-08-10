@@ -42,7 +42,6 @@ $(function() {
                 expect(item.name).not.toBe("");
             });
         });
-
     });
     //code for this test suite inspired from https://discussions.udacity.com/t/menu-visibility-test/187928/5
     describe('The menu', function () {
@@ -57,6 +56,7 @@ $(function() {
             $('.menu-icon-link').click();
                 expect(document.body.className).not.toContain('menu-hidden');
         });
+
         // Checks that menu hides when hamburger icon is clicked and menu is visible
         it('should disappear when the hamburger icon is clicked when menu is visible', function () {
             $('.menu-icon-link').click();
@@ -66,9 +66,25 @@ $(function() {
 
     describe('Initial Entries', function () {
 
-        //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
+        //store all feeds in this container
+        var feedContainer = [];
+
+        //make sure async loadFeed function is done loading - use callback function to store all feeds from each source
         beforeEach(function (done) {
-            loadFeed(0, done);
+            allFeeds.forEach(function(item, i) {
+                loadFeed(i, function () {
+
+                    //get all feeds from a source
+                    var feed = $('.feed').children('.entry-link');
+
+                    //copy all feeds of a source into container
+                    feedContainer.push(feed);
+
+                    if (i === allFeeds.length - 1) {
+                        done();
+                    }
+                });
+            });
         });
 
         //checks that there is at least one entry in feed container
@@ -79,26 +95,28 @@ $(function() {
 
     describe('New Feed Selection', function () {
 
-    //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
+        //store feed variables in array
+        var feedContent = [];
+
+        //use done because loadFeed is async
         beforeEach(function (done) {
-            loadFeed(0, done);
+            allFeeds.forEach(function(item, i) {
+                loadFeed(i, function() {
+
+                    //for each feed loaded, store html content in array
+                    var content = $('.feed').html();
+                    feedContent.push(content);
+
+                    if (i === allFeeds.length - 1) {
+                        done();
+                    }
+                });
+            });
         });
 
-        //QUESTION FOR REVIEWER: This only checks if posts from the first site is done loading. I want to do a
-        //check for all, but cannot get the forEach code i made up to work. What is wrong in the commented code?
-        //----
-        // beforeEach(function (done) {
-        //     allFeeds.forEach(function(item) {
-        //         loadFeed(item, function () {
-        //             done();
-        //         });
-        //     });
-        // });
-        //----
-
-        it('container newest entry should be different from next entry', function (done) {
-            expect($('.feed').children().first()).not.toEqual(($('.feed').children().first().next()));
-            done();
+        it('container should only have unique entries', function () {
+            //set only stores unique values, so if length is equal it follows that array has no duplicates
+            expect(feedContent.length === new Set(feedContent).size).toBe(true);
         });
     });
 }());
