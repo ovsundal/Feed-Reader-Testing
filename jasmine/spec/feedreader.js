@@ -49,56 +49,39 @@ $(function() {
 
         // Checks that the menu is hidden on page load
         it('should be hidden by default', function () {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(document.body.className).toContain('menu-hidden');
         });
 
         // Checks that menu shows when hamburger icon is clicked and menu is hidden
         it('should appear when hamburger icon is clicked and menu is hidden', function () {
             $('.menu-icon-link').click();
-                expect(document.body.className).not.toBe('menu-hidden');
+                expect(document.body.className).not.toContain('menu-hidden');
         });
         // Checks that menu hides when hamburger icon is clicked and menu is visible
         it('should disappear when the hamburger icon is clicked when menu is visible', function () {
             $('.menu-icon-link').click();
-            expect(document.body.className).toBe('menu-hidden');
+            expect(document.body.className).toContain('menu-hidden');
         });
     });
 
-
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
-
     describe('Initial Entries', function () {
-        //Checks that there is at least one entry inside the feed container (loaded async)
 
         //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
         beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+            loadFeed(0, done);
         });
 
-        //checks that there is at least one feed entry pulled from each feed site
-        it('container should have at least one entry', function (done) {
-            expect($('.feed').children().length).toBeGreaterThan(0);
-            console.log($('.feed').children().length);
-            done();
+        //checks that there is at least one entry in feed container
+        it('container should have at least one entry', function () {
+            expect($('.feed').children('.entry-link').length).toBeGreaterThan(0);
         });
     });
-
-
 
     describe('New Feed Selection', function () {
 
     //make sure async loadFeed function is done loading - (this only checks that allFeeds(0) is done loading).
         beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         //QUESTION FOR REVIEWER: This only checks if posts from the first site is done loading. I want to do a
