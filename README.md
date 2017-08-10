@@ -1,10 +1,13 @@
 # Project Overview
 
-In this project a ready made web-based RSS feedreader was provided, with the intention of writing test suites to test the app. To run the app, open index.html in any web browser. All code i wrote for this project is in /jasmine/spec/feedreader.js - everything else was provided.
+<p>In this project a ready made web-based RSS feedreader was provided, with the intention of writing test suites to 
+test the app. To run the app, open index.html in any web browser. All code i wrote for this project is in 
+/jasmine/spec/feedreader.js - everything else was provided.</p>
 
-This project is part of Udacitys Front-End Web Developer nanodegree program (https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
+<p>This project is part of Udacitys Front-End Web Developer nanodegree program 
+(https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).</p>
 
 ## Learning outcomes
 
 * Using Jasmine framework for JavaScript unit testing  
-* Better understanding of asynchronous requests
+* Better understanding of how asynchronous requests work and how to simplify requests using callback functions
