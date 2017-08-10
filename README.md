@@ -11,4 +11,4 @@ test the app. To run the app, open index.html in any web browser or visit  https
 
 * Using Jasmine framework for JavaScript unit testing  
 * Better understanding of how asynchronous requests work and how to simplify requests using callback functions
-* A clever trick to test that an array only has unique entries; create a set from the array and compare lengths. If equal lengths it follows that the array has no duplicates
+* A clever trick to test that an array only has unique entries; create a set from the array and compare lengths. If equal lengths it follows that the array has no duplicates as a set only has unique values
