@@ -1,11 +1,9 @@
 # Project Overview
 
-<p>In this project a ready made web-based RSS feedreader was provided, with the intention of writing test suites to 
-test the app. To run the app, open index.html in any web browser or visit  https://ovsundal.github.io/Feed-Reader-Testing/. All code i wrote for this project is in 
-/jasmine/spec/feedreader.js - everything else was provided.</p>
+In this project a ready made web-based RSS feedreader was provided, with the intention of writing test suites to 
+test the app. To run the app, open index.html in any web browser or [click here.](https://ovsundal.github.io/Feed-Reader-Testing/) All code i wrote for this project is in folder /jasmine/spec/feedreader.js - everything else was provided.
 
-<p>This project is part of Udacitys Front-End Web Developer nanodegree program 
-(https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).</p>
+This project is part of [Udacitys Front-End Web Developer nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
 
 ## Learning outcomes
 
